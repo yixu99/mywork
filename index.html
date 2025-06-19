@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yixu | Photography Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0; padding: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #efeeec;
+      color: #222;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .container {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #efeeec;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    h1 {
+      margin-bottom: 0.2rem;
+      font-size: 3rem;
+      letter-spacing: 1px;
+    }
+    .subtitle {
+      margin-top: 0;
+      font-weight: 300;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    /* Homepage project buttons */
+    .projects-home {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .project-btn {
+      position: relative;
+      width: 280px;
+      height: 180px;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background-color: #ddd;
+    }
+    .project-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .project-btn img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease;
+    }
+    .project-btn:hover img {
+      filter: brightness(1);
+    }
+    .project-label {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      color: white;
+      font-weight: 700;
+      font-size: 1.4rem;
+      text-shadow: 0 0 6px rgba(0,0,0,0.6);
+    }
+
+    /* Project detail pages */
+    .project-detail {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+      overflow-y: auto;
+      height: 100vh;
+      padding-bottom: 3rem;
+    }
+    .project-detail.active {
+      display: flex;
+    }
+    .back-btn {
+      align-self: flex-start;
+      margin: 1rem 0;
+      cursor: pointer;
+      color: #666;
+      font-weight: 600;
+      font-size: 1rem;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+    .back-btn:hover {
+      color: #222;
+    }
+    .project-title {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .project-description {
+      max-width: 700px;
+      margin-bottom: 2rem;
+      color: #444;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .project-images {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      width: 100%;
+    }
+    .project-images img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+
+    /* About Me */
+    .about-me {
+      max-width: 600px;
+      margin: 0 auto 3rem auto;
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container" id="home">
+  <h1>Yixu</h1>
+  <p class="subtitle">Photography & Visual Narratives</p>
+
+  <div class="projects-home">
+    <div class="project-btn" data-project="wedding">
+      <img src="wedding.jpg" alt="My Wedding Photo" />
+      <div class="project-label">My Wedding Photo</div>
+    </div>
+    <div class="project-btn" data-project="smoke">
+      <img src="smoke1.jpg" alt="Home is where the smoke rises" />
+      <div class="project-label">Home is where the smoke rises</div>
+    </div>
+  </div>
+
+  <div class="about-me">
+    <h2>About Me</h2>
+    <p>I’m Yixu, born in Tangshan, Hebei, China, currently living in London.</p>
+  </div>
+</div>
+
+<div class="container project-detail" id="wedding-project">
+  <button class="back-btn" onclick="showHome()">← Back to Home</button>
+  <h2 class="project-title">My Wedding Photo</h2>
+  <p class="project-description">
+    This photographic series explores identity and societal expectations. Through staged portraits of a “wedding photo” and a “graduation photo,” I respond to society’s standardised notions of happiness and success for women. These images appear to capture significant moments in life, but are they truly my own choices and reality?
+  </p>
+  <div class="project-images">
+    <img src="wedding.jpg" alt="My Wedding Photo" />
+  </div>
+</div>
+
+<div class="container project-detail" id="smoke-project">
+  <button class="back-btn" onclick="showHome()">← Back to Home</button>
+  <h2 class="project-title">Home is where the smoke rises</h2>
+  <p class="project-description">
+    Guye is located on the outskirts of Tangshan city, where the urban landscape meets the surrounding rural areas. Every year before the Spring Festival, the local tradition of “gan daji” (market gathering) becomes the most vibrant folk economic activity. People say: “When the market gets lively, the New Year is near.” This is not just a way of marking time—it is a ritual of living. In my childhood memory, the New Year market was full of warmth, sound, and smell. When I returned home after many years to celebrate the New Year again, I found that this familiar place had quietly changed. The market is shrinking, the city is expanding, families are evolving, and even kinship needs to be re-acknowledged and understood. I photographed the bustling streets, and also the empty man-made ski resort during the holiday. I captured my uncle’s work in the kitchen and the first moment I met my granduncle’s third wife. The dog is still there, the house is still there, but time has left its shadow on everyone’s face. This series is both a rediscovery of my own family and an observation of the social space at the edge of city and countryside during a traditional festival. In this often-overlooked fringe zone, people continue to preserve warmth and meaning in their everyday lives—in their own way.
+  </p>
+  <div class="project-images">
+    <img src="smoke1.jpg" alt="Smoke Photo 1" />
+    <img src="smoke2.jpg" alt="Smoke Photo 2" />
+    <img src="smoke3.jpg" alt="Smoke Photo 3" />
+    <img src="smoke4.jpg" alt="Smoke Photo 4" />
+    <img src="smoke5.jpg" alt="Smoke Photo 5" />
+    <img src="smoke6.jpg" alt="Smoke Photo 6" />
+    <img src="smoke7.jpg" alt="Smoke Photo 7" />
+    <img src="smoke8.jpg" alt="Smoke Photo 8" />
+  </div>
+</div>
+
+<script>
+  const home = document.getElementById('home');
+  const weddingProject = document.getElementById('wedding-project');
+  const smokeProject = document.getElementById('smoke-project');
+  const projectButtons = document.querySelectorAll('.project-btn');
+
+  projectButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const project = btn.getAttribute('data-project');
+      home.style.display = 'none';
+      if (project === 'wedding') {
+        weddingProject.classList.add('active');
+      } else if (project === 'smoke') {
+        smokeProject.classList.add('active');
+      }
+      window.scrollTo(0,0);
+    });
+  });
+
+  function showHome() {
+    weddingProject.classList.remove('active');
+    smokeProject.classList.remove('active');
+    home.style.display = 'flex';
+    window.scrollTo(0,0);
+  }
+</script>
+
+</body>
+</html>
